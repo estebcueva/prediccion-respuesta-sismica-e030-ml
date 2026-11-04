@@ -1,0 +1,27 @@
+# Registros crudos de PEER NGA-West2 y acelerogramas peruanos (pesados, con condiciones de uso)
+data/at2/
+data/peru/
+*.AT2
+*.at2
+
+# Flatfile de NGA-West2
+data/NGA_West2_flatfile*.csv
+
+# Archivos de error de la campaña NLTHA
+data/*_errores.csv
+
+# Entorno virtual y cachés de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
