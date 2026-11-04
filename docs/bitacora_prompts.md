@@ -96,7 +96,7 @@ El grupo declara que:
 | Integrante | Código | Elementos revisados (marcar) | Firma | Fecha |
 | --- | --- | --- | --- | --- |
 | Paulino Antonio Díaz Hinostroza | e201572251 | ☐ Normativa E.030 ☐ Modelo OpenSees ☐ Datos/CSV ☐ EDA ☐ Informe | | |
-| Rodrigo Alonso De la Cruz Herrera | e202527672 | ☑ Normativa E.030 ☐ Modelo OpenSees ☑ Datos/CSV ☐ EDA ☐ Informe |R. De la Cruz H. |R. De la Cruz H. |
+| Rodrigo Alonso De la Cruz Herrera | e202527672 | ☑ Normativa E.030 ☐ Modelo OpenSees ☑ Datos/CSV ☐ EDA ☐ Informe |R. De la Cruz H. |03-11-2026 |
 | Guido Eduardo Valdez Tejeira | e202528480 | ☐ Normativa E.030 ☐ Modelo OpenSees ☐ Datos/CSV ☐ EDA ☐ Informe | | |
 | Felix Mamani Huanca | e202527091 | ☐ Normativa E.030 ☐ Modelo OpenSees ☐ Datos/CSV ☐ EDA ☐ Informe | | |
 | Johnny Esteban Cueva Moncada | e202527071 | ☐ Normativa E.030 ☐ Modelo OpenSees ☐ Datos/CSV ☐ EDA ☐ Informe | | |
