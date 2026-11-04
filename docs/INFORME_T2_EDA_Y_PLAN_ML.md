@@ -276,7 +276,7 @@ El K-Fold aleatorio reportó un error 32 % menor que el real, de la magnitud que
 
 ## 4. Cumplimiento del marco VDS / PCS
 
-Veridical Data Science (Yu y Kumbier, 2020) exige que un resultado sea **P**redecible, **C**omputable y **E**stable (*Stability*) para considerarlo confiable.
+Veridical Data Science (Yu y Kumbier, 2020; Yu y Barter, 2024) exige que un resultado sea **P**redecible, **C**omputable y **E**stable (*Stability*) para considerarlo confiable.
 
 ### 4.1 Predictibilidad
 
@@ -334,3 +334,4 @@ Una conclusión se acepta solo si sobrevive a estas perturbaciones razonables:
 6. Haselton, C. B., Liel, A. B., Taylor-Lange, S. C., y Deierlein, G. G. (2016). Calibration of model to simulate response of reinforced concrete beam-columns to collapse. *ACI Structural Journal*, 113(6).
 7. Kaveh, A., Ilchi Ghazaan, M., y Mohammadi, A. (2026). Seismic response prediction of 3D reinforcement concrete frames using machine learning methods. *Periodica Polytechnica Civil Engineering*, 70(1).
 8. Beck, S. L., y Nishenko, S. P. (1990). Variations in the mode of great earthquake rupture along the Central Peru Subduction Zone. *Geophysical Research Letters*, 17(11).
+9. Yu, B., y Barter, R. (2024). *Veridical Data Science*. MIT Press. https://vdsbook.com/
