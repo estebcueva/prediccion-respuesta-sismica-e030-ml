@@ -1,7 +1,7 @@
 # Estructura del repositorio
 
 ```text
-sismo-ml-peru-e030/
+prediccion-respuesta-sismica-e030-ml/
 ├── README.md                          Portada: badges, estado, integrantes, inicio rápido
 ├── ESTRUCTURA_REPO.md                 Este archivo
 ├── requirements.txt                   Dependencias (Python ≥ 3.10)
