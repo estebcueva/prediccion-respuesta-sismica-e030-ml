@@ -19,7 +19,7 @@ La presentación está publicada como deck de Slides (exportable a PowerPoint o 
 | Felix Mamani Huanca | e202527091 | e202527091@upc.edu.pe |
 | Johnny Esteban Cueva Moncada | e202527071 | e202527071@upc.edu.pe |
 
-- Repositorio: [pegar aquí la URL del repositorio GitHub del grupo]
+- Repositorio: https://github.com/estebcueva/prediccion-respuesta-sismica-e030-ml
 
 **Guion:** (≈ 1 minuto) Buenos días. Somos el grupo de Paulino Díaz, Rodrigo De la Cruz, Guido Valdez, Felix Mamani y Johnny Cueva. Nuestro proyecto busca predecir con inteligencia artificial cuánto se deforma y cuánta fuerza recibe un edificio de concreto armado peruano durante un sismo. Predecimos dos cosas: la deriva máxima de entrepiso, que es lo que la norma E.030 limita a 0.007, y el cortante basal dividido entre el peso del edificio. Trabajamos con la norma vigente, la E.030 modificada en 2026, y con la base de sismos PEER NGA-West2 de la Universidad de California en Berkeley. En esta segunda entrega presentamos la base de datos, el análisis exploratorio y el plan para entrenar los modelos. Todo el código, los datos y la bitácora de uso de IA están en nuestro repositorio de GitHub, cuyo enlace ven en pantalla.
 
