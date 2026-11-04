@@ -48,8 +48,8 @@ La validación externa usa sismos peruanos de **subducción** (Lima 1966, Lima 1
 ## Inicio rápido
 
 ```bash
-git clone <URL-del-repositorio>
-cd sismo-ml-peru-e030
+git clone https://github.com/estebcueva/prediccion-respuesta-sismica-e030-ml.git
+cd prediccion-respuesta-sismica-e030-ml
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
