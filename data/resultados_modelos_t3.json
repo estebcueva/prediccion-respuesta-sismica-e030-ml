@@ -1,0 +1,247 @@
+{
+  "n_modelado": 1410,
+  "n_train": 1089,
+  "n_test": 321,
+  "arquetipos_sin_datos": [
+    "DUA-04",
+    "DUA-10",
+    "MUR-01",
+    "MUR-03",
+    "POR-06"
+  ],
+  "metricas_ln_MIDR": [
+    {
+      "Modelo": "Ridge (base)",
+      "R² CV": 0.836,
+      "σln CV": 0.277,
+      "R² test": 0.699,
+      "σln test": 0.44,
+      "MAPE test MIDR (%)": 30.12,
+      "Brecha R² (CV − test)": 0.138
+    },
+    {
+      "Modelo": "Random Forest",
+      "R² CV": 0.834,
+      "σln CV": 0.279,
+      "R² test": 0.788,
+      "σln test": 0.368,
+      "MAPE test MIDR (%)": 27.567,
+      "Brecha R² (CV − test)": 0.046
+    },
+    {
+      "Modelo": "XGBoost",
+      "R² CV": 0.843,
+      "σln CV": 0.271,
+      "R² test": 0.823,
+      "σln test": 0.337,
+      "MAPE test MIDR (%)": 25.461,
+      "Brecha R² (CV − test)": 0.02
+    },
+    {
+      "Modelo": "LightGBM",
+      "R² CV": 0.839,
+      "σln CV": 0.275,
+      "R² test": 0.793,
+      "σln test": 0.364,
+      "MAPE test MIDR (%)": 27.067,
+      "Brecha R² (CV − test)": 0.045
+    },
+    {
+      "Modelo": "Red neuronal MLP",
+      "R² CV": 0.812,
+      "σln CV": 0.296,
+      "R² test": 0.678,
+      "σln test": 0.454,
+      "MAPE test MIDR (%)": 29.426,
+      "Brecha R² (CV − test)": 0.134
+    }
+  ],
+  "metricas_Vb_W": [
+    {
+      "Modelo": "Ridge (base)",
+      "R² CV": 0.882,
+      "RMSE CV": 0.068,
+      "R² test": 0.887,
+      "RMSE test": 0.075,
+      "MAPE test (%)": 17.752,
+      "Brecha R² (CV − test)": -0.006
+    },
+    {
+      "Modelo": "Random Forest",
+      "R² CV": 0.936,
+      "RMSE CV": 0.05,
+      "R² test": 0.945,
+      "RMSE test": 0.053,
+      "MAPE test (%)": 12.424,
+      "Brecha R² (CV − test)": -0.009
+    },
+    {
+      "Modelo": "XGBoost",
+      "R² CV": 0.934,
+      "RMSE CV": 0.051,
+      "R² test": 0.944,
+      "RMSE test": 0.053,
+      "MAPE test (%)": 12.985,
+      "Brecha R² (CV − test)": -0.009
+    },
+    {
+      "Modelo": "LightGBM",
+      "R² CV": 0.933,
+      "RMSE CV": 0.051,
+      "R² test": 0.944,
+      "RMSE test": 0.053,
+      "MAPE test (%)": 13.207,
+      "Brecha R² (CV − test)": -0.011
+    },
+    {
+      "Modelo": "Red neuronal MLP",
+      "R² CV": 0.921,
+      "RMSE CV": 0.056,
+      "R² test": 0.915,
+      "RMSE test": 0.066,
+      "MAPE test (%)": 13.118,
+      "Brecha R² (CV − test)": 0.006
+    }
+  ],
+  "cumplimiento": [
+    {
+      "Límite": "0.007",
+      "Casos no cumple (real)": 151,
+      "Precisión no cumple": 0.909,
+      "Recall no cumple": 0.861,
+      "F1 no cumple": 0.884,
+      "Falsos 'cumple' (inseguros)": 21,
+      "Falsos 'no cumple'": 13
+    },
+    {
+      "Límite": "0.00875",
+      "Casos no cumple (real)": 119,
+      "Precisión no cumple": 0.865,
+      "Recall no cumple": 0.756,
+      "F1 no cumple": 0.807,
+      "Falsos 'cumple' (inseguros)": 29,
+      "Falsos 'no cumple'": 14
+    }
+  ],
+  "criterios": [
+    {
+      "Criterio (fijado en T2)": "R² test ln(MIDR) ≥ 0.85",
+      "Valor": "0.823",
+      "Cumple": "False"
+    },
+    {
+      "Criterio (fijado en T2)": "σln test ≤ 0.35",
+      "Valor": "0.337",
+      "Cumple": "True"
+    },
+    {
+      "Criterio (fijado en T2)": "F1 'no cumple' (0.007) ≥ 0.85",
+      "Valor": "0.884",
+      "Cumple": "True"
+    },
+    {
+      "Criterio (fijado en T2)": "Brecha R² CV − test ≤ 0.05",
+      "Valor": "0.020",
+      "Cumple": "True"
+    },
+    {
+      "Criterio (fijado en T2)": "Supera a Ridge (σln CV)",
+      "Valor": "0.271 vs 0.277",
+      "Cumple": "True"
+    }
+  ],
+  "mejor_ln_MIDR": "XGBoost",
+  "mejor_Vb_W": "Random Forest",
+  "hiperparametros": {
+    "ln_MIDR": {
+      "Ridge (base)": {
+        "m__alpha": 2.2361487473323054
+      },
+      "Random Forest": {
+        "m__max_depth": 24,
+        "m__max_features": 0.35231311262828136,
+        "m__min_samples_leaf": 1,
+        "m__n_estimators": 598
+      },
+      "XGBoost": {
+        "m__colsample_bytree": 0.5292172924419387,
+        "m__learning_rate": 0.0604555328044548,
+        "m__max_depth": 2,
+        "m__n_estimators": 865,
+        "m__reg_lambda": 5.964948743460277,
+        "m__subsample": 0.8450262743523494
+      },
+      "LightGBM": {
+        "m__colsample_bytree": 0.7315912689664901,
+        "m__learning_rate": 0.030490398457764595,
+        "m__min_child_samples": 8,
+        "m__n_estimators": 233,
+        "m__num_leaves": 45,
+        "m__reg_lambda": 0.6204594448335546,
+        "m__subsample": 0.8350031277950921,
+        "m__subsample_freq": 1
+      },
+      "Red neuronal MLP": {
+        "regressor__m__activation": "relu",
+        "regressor__m__alpha": 2.3299896368712672e-05,
+        "regressor__m__hidden_layer_sizes": "(64, 32)",
+        "regressor__m__learning_rate_init": 0.00012613970407541792
+      }
+    },
+    "Vb_W": {
+      "Ridge (base)": {
+        "m__alpha": 0.7511715967956266
+      },
+      "Random Forest": {
+        "m__max_depth": 24,
+        "m__max_features": 0.35231311262828136,
+        "m__min_samples_leaf": 1,
+        "m__n_estimators": 598
+      },
+      "XGBoost": {
+        "m__colsample_bytree": 0.8214484748875857,
+        "m__learning_rate": 0.020274805264503003,
+        "m__max_depth": 5,
+        "m__n_estimators": 492,
+        "m__reg_lambda": 1.202644064723408,
+        "m__subsample": 0.8242572440816496
+      },
+      "LightGBM": {
+        "m__colsample_bytree": 0.5396949683872195,
+        "m__learning_rate": 0.01644183547005224,
+        "m__min_child_samples": 7,
+        "m__n_estimators": 876,
+        "m__num_leaves": 40,
+        "m__reg_lambda": 0.042948729661846326,
+        "m__subsample": 0.6810506889146448,
+        "m__subsample_freq": 1
+      },
+      "Red neuronal MLP": {
+        "regressor__m__activation": "relu",
+        "regressor__m__alpha": 0.00048816656504695974,
+        "regressor__m__hidden_layer_sizes": "(128, 64)",
+        "regressor__m__learning_rate_init": 0.00895003480099912
+      }
+    }
+  },
+  "shap_top_ln_MIDR": {
+    "HI_m": 0.2011999934911728,
+    "T1_s": 0.11890000104904175,
+    "Sa_avg_g": 0.11299999803304672,
+    "PGA_g": 0.11230000108480453,
+    "Vest_W": 0.10700000077486038,
+    "Mw": 0.05790000036358833,
+    "Rrup_km": 0.0568000003695488,
+    "Sa_T1_g": 0.056299999356269836
+  },
+  "shap_top_Vb_W": {
+    "Sa_avg_g": 0.0503,
+    "Sa_T1_g": 0.0409,
+    "T1_s": 0.0323,
+    "Sa_dis_R1_g": 0.0239,
+    "C_T1": 0.0189,
+    "PGA_g": 0.0096,
+    "Vest_W": 0.0088,
+    "HI_m": 0.0081
+  }
+}
