@@ -2,7 +2,7 @@
 
 **Curso:** Aplicaciones de IA en Estructuras — UPC · **Docente:** Ing. Kurt Soncco Sinchi
 **Proyecto:** Predicción de demandas sísmicas (ln MIDR y Vb/W) en edificaciones de concreto armado en el Perú — E.030-2026 · PEER NGA-West2
-**Periodo cubierto:** 27 de octubre – 2 de noviembre de 2026 (Entregas T1 y T2)
+**Periodo cubierto:** 27 de octubre – 12 de noviembre de 2026 (Entregas T1, T2 y T3; la T3 está en la sección 5)
 
 ---
 
@@ -108,3 +108,59 @@ El grupo declara que:
 - [ ] Reejecutar `notebooks/eda_t2.ipynb` sin errores.
 - [ ] Verificar a mano un arquetipo: T1 aproximado ($h_n/C_T$), W y C(T1) contra `catalogo_arquetipos.csv`.
 - [ ] Contrastar una fila de la Tabla 4/5 de la E.030-2026 con el PDF oficial.
+
+---
+
+## 5. Entrega T3 (5 – 12 de noviembre de 2026)
+
+### 5.1 Registro de prompts
+
+Mismo criterio que la sección 2. Las fechas sin hora corresponden a sesiones en las que el prompt se reconstruyó del historial; las consultas operativas breves (cómo ubicar o subir un archivo) se agrupan.
+
+| N.° | Fecha y hora (Lima) | Prompt (resumen fiel o texto literal) | Producto obtenido |
+| --- | --- | --- | --- |
+| P10 | ≈ 6-nov | Guía para que cada integrante instale el proyecto y corra su parte de la campaña NLTHA en su PC | Guía de ejecución (Python 3.12, entorno, prueba piloto, comando de campaña, entrega del CSV) |
+| P11 | 7-nov | La web de PEER no atiende el fin de semana: ¿hay otra forma de obtener los registros? | `src/exportar_p695.py`: set far-field de FEMA P695 (22 pares de PEER NGA, mismos RSN de NGA-West2) en formato .AT2 y `registros_seleccionados.csv` con partición por evento |
+| P12 | 7-nov | «¿Esto no va en contra del título de mi proyecto, ya que se debía usar los registros del PEER? ¿Qué es lo que cambia?» | Comparación de los 22 registros con los filtros F1–F5 del proyecto, opciones y desviaciones a declarar |
+| P13 | ≈ 8-nov | Repartir la segunda mitad de la campaña entre los integrantes | Guía de la segunda mitad con los arquetipos y comandos de cada parte |
+| P14 | 11-nov 22:39 | «Necesito una guía para que mis compañeros exporten sus CSV para pasar a la otra parte del trabajo … igual tenemos que presentar algo en GitHub» | Guía de subida de resultados (primera versión rechazada; ver 5.3) |
+| P15 | 11-nov 22:47 | «Cortan la corrida desde ahora y que suban sus datos ahora, que le pongan su apellido» | Guía corregida y PDF para el grupo |
+| — | 12-nov 14:22 – 17:00 | Consultas operativas: qué archivo subir, cómo subirlo a GitHub, revisión de un CSV comprimido | Instrucciones paso a paso; verificación del CSV (93 casos, 57 columnas, sin nulos) |
+| P16 | 12-nov 16:21 | «Revisa el GitHub y dime si ya tienes todo listo para pasar al siguiente paso y aplicar las predicciones estadísticas aprendidas en clase. Dame tu opinión antes de hacer el trabajo» | Diagnóstico del repositorio: 1 422 casos, 18/18 PASS, cobertura por arquetipo y por registro, plan de modelado |
+| P17 | 12-nov 16:26 | «Hay que seguir, declara los que faltan … redes neuronales también vimos» | `data/dataset_sismico_peru.csv`, `notebooks/modelos_t3.ipynb`, `docs/RESULTADOS_T3.md`, figuras `t3_*` |
+| P18 | 12-nov 17:27 | Actualizar la documentación del repositorio y preparar el PDF de la exposición | README actualizado, esta sección y la presentación |
+
+### 5.2 Sugerencias aceptadas
+
+| Sugerencia de la IA | Motivo técnico de la aceptación | Dónde quedó |
+| --- | --- | --- |
+| Usar el **set far-field de FEMA P695** ante la falta de acceso a PEER | Son registros PEER NGA con los mismos RSN de NGA-West2, seleccionados con criterios publicados; permitió ejecutar la campaña dentro del plazo | `src/exportar_p695.py`, README |
+| Declarar las **desviaciones** respecto de los filtros del proyecto (solo 9 de 22 estaciones en S1/S2; Kobe RSN 1111 a 7.1 km) | Transparencia metodológica; delimita el dominio de validez del modelo | `docs/RESULTADOS_T3.md` §8 |
+| Excluir **`Z`** (constante) y **`factor_escala`** (decisión del analista) de las variables de entrada | `Z` no aporta información; el efecto de `factor_escala` ya está en las IM escaladas (nota del docs/03). Cierra la decisión pendiente de la sección 3.2 | `notebooks/modelos_t3.ipynb` |
+| Comparar **5 familias de modelos** con Ridge como línea base, GroupKFold(5) por evento y una sola evaluación en la prueba retenida | Plan aprobado en el T2; evita elegir el modelo mirando el test | `notebooks/modelos_t3.ipynb` |
+| Evaluar el cumplimiento de deriva a partir del MIDR predicho, con "no cumple" como clase positiva | Un falso "cumple" es el error inseguro; se reporta su número explícitamente | `docs/RESULTADOS_T3.md` §5 |
+| Reportar el **sesgo por nivel de intensidad y por sistema** | Mostró que el modelo subestima la deriva en pórticos y en intensidades altas (lado inseguro) | `docs/RESULTADOS_T3.md` §8 |
+
+### 5.3 Sugerencias rechazadas o modificadas por el grupo
+
+| Sugerencia de la IA | Decisión del grupo | Razón |
+| --- | --- | --- |
+| Primera guía de subida de resultados (P14) con exportación desde Excel y ETABS y un esquema de columnas propio | **Rechazada** | El flujo del grupo es solo VS Code/Python: `campana_nltha.py` ya escribe el CSV con el esquema de 57 columnas. La guía se rehízo sobre ese flujo |
+| Dejar que cada corrida terminara antes de entregar | **Modificada:** se cortaron las corridas el 11-nov y se entregó lo calculado, con el apellido en el nombre del archivo | Plazo de la T3; campaña reducida con conformidad del docente |
+| Esperar la ejecución completa de los 40 arquetipos antes de entrenar | **Rechazada:** se entrenó con 35 arquetipos y se declaró la limitación | Plazo de la T3 |
+
+### 5.4 Desviaciones respecto del plan T2 y errores de la IA
+
+1. **Búsqueda de hiperparámetros:** 20 combinaciones por modelo en vez de 30 y validación cruzada simple (no anidada), por tiempo de cómputo.
+2. **Red neuronal:** MLP de scikit-learn en vez de PyTorch; misma arquitectura conceptual (2–3 capas, estandarización de entradas y salida).
+3. **Error de la IA en `exportar_p695.py`:** la primera versión clasificaba el suelo con un rango equivocado de S2. Se corrigió al rango de `src/e030.py`; no afectó los cálculos, porque la campaña usa el Vs30 numérico.
+4. **Error de la IA en la guía de subida (P14):** asumió un flujo con Excel y ETABS e inventó un esquema de columnas. Lo detectó el grupo y se corrigió (sección 5.3).
+
+### 5.5 Información que la IA no pudo verificar
+
+| Dato | Estado | Responsable de cerrarlo |
+| --- | --- | --- |
+| Reproducibilidad de `modelos_t3.ipynb` en las PC del grupo | Ejecutado por el asistente en un entorno aislado (Python 3.13, scikit-learn 1.9.1, XGBoost 3.4.1, LightGBM 4.7.0, SHAP 0.54.1) | Grupo: reejecutar el notebook |
+| Prueba de estabilidad por suelo (excluir los registros S3/S4) | No ejecutada | Ampliación del proyecto |
+| Validación externa con sismos peruanos de subducción | No ejecutada en la T3 | Ampliación del proyecto |
+

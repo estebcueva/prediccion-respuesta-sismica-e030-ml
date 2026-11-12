@@ -80,7 +80,7 @@ Figuras: `t3_pred_vs_real.png`, `t3_comparacion_modelos.png`, `t3_shap_midr.png`
 ## 8. Limitaciones
 
 1. **Campaña reducida.** Se tienen 1 422 de los 2 640 NLTHA previstos (54 %), con autorización del docente por el límite de memoria computacional.
-2. **Arquetipos faltantes.** No hay resultados de DUA-04, DUA-10, MUR-01, MUR-03 ni POR-06, porque no se entregó la parte D. El modelo no se evalúa en ellos.
+2. **Arquetipos faltantes.** Los arquetipos DUA-04, DUA-10, MUR-01, MUR-03 y POR-06 no se ejecutaron. El modelo no se evalúa en ellos.
 3. **Cobertura desigual.** Solo 3 de 35 arquetipos tienen sus 66 casos completos. Además, 7 de los 22 registros tienen 15 casos o menos, porque las corridas se cortaron antes de llegar a ellos. El modelo aprende más de los primeros registros del orden de corrida.
 4. **Prueba pequeña.** El test tiene 3 eventos (321 casos), así que las métricas de test tienen alta varianza. El mismo modelo podría quedar por encima o por debajo de 0.85 con otros 3 sismos.
 5. **Sesgo no conservador.** En el test, XGBoost subestima la deriva en los niveles altos (sesgo de ln −0.12 a 1.0× y −0.14 a 1.5×) y en pórticos (−0.20, es decir, ≈ 18 % menos deriva). Para uso práctico se necesitaría un factor de corrección o más datos en ese rango.
@@ -89,4 +89,4 @@ Figuras: `t3_pred_vs_real.png`, `t3_comparacion_modelos.png`, `t3_shap_midr.png`
 
 ## 9. Conclusión
 
-Un modelo sustituto con XGBoost estima la deriva máxima de entrepiso en sismos no vistos con un error típico de ≈ 34 % en escala logarítmica, y el cortante basal normalizado con R² ≈ 0.94. Esto basta para una evaluación preliminar rápida, no para diseño. El siguiente paso es completar la campaña (incluida la parte D y los registros con pocos casos) y repetir el entrenamiento con validación externa peruana.
+Un modelo sustituto con XGBoost estima la deriva máxima de entrepiso en sismos no vistos con un error típico de ≈ 34 % en escala logarítmica, y el cortante basal normalizado con R² ≈ 0.94. Esto basta para una evaluación preliminar rápida, no para diseño. El siguiente paso es completar la campaña (los 5 arquetipos no ejecutados y los registros con pocos casos) y repetir el entrenamiento con validación externa peruana.
